@@ -14,7 +14,7 @@ function Restaurants(props){
   }
 
   useEffect(() => {
-    fetch(`https://cryptic-lowlands-55609.herokuapp.com/api/restaurants?perPage=${perPage}&page=${page}&borough${query.borough}`)
+    fetch(`https://cryptic-lowlands-55609.herokuapp.com/api/restaurants?perPage=${perPage}&page=${page}&borough=${query.borough}`)
     .then(response => response.json())
     .then(data => {
       setRestaurants(data);
