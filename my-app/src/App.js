@@ -5,6 +5,11 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
+import About from "./About";
+import Restaurant from "./Restaurant";
+import Restaurants from "./Restaurants";
+import NotFound from "./NotFound";
+
 function App() {
   const [searchString, setSearchString] = useState("");
   let history = useHistory();
@@ -41,7 +46,17 @@ function App() {
       <Container>
         <Row>
           <Col>
-
+            <Switch>
+              <Route exact path='/' render={() => <Redirect to="/Restaurants" />}/>
+              <Route exact path="/about" render={() => <About />} />
+              <Route exact path="/Restaurants" render={(props) => {
+                <Restaurants query={props.location.search} />
+              }} />
+              <Route exact path="/Restaurant/:id" render={(props) => {
+                <Restaurant id={props.match.params.id} />
+              }} />
+              <Route render={() => <NotFound />} />
+            </Switch>   
           </Col>
         </Row>
       </Container>
