@@ -38,6 +38,13 @@ function App() {
         </Navbar.Collapse>
       </Navbar>
       <br />
+      <Container>
+        <Row>
+          <Col>
+
+          </Col>
+        </Row>
+      </Container>
     </>
   )
 }
