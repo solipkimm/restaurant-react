@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 import { useState, useEffect } from "react";
 import { Card, CardDeck } from "react-bootstrap";
+import Moment from 'moment';
 
 function Restaurant(props){
   const [restaurant, setRestaurant] = useState(null);
@@ -62,7 +63,7 @@ function Restaurant(props){
                   <Card.Body>
                     <Card.Title>Grade: {res.grade}</Card.Title>
                     <Card.Text>
-                      Completed: {res.date}
+                      Completed: {Moment(res.date).format("L")}
                     </Card.Text>
                   </Card.Body>
                 </Card>
