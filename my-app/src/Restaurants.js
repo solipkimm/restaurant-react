@@ -57,7 +57,7 @@ function Restaurants(props){
             <tbody>
               {
                 restaurants.map(restaurant =>
-                  <tr key={restaurant.id}
+                  <tr key={restaurant._id}
                     onClick={()=>{ 
                       history.push(`/restaurant/${restaurant._id}`)
                     }}>
