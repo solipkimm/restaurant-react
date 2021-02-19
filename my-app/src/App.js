@@ -1,14 +1,16 @@
 import './App.css';
+
 import { Button, Col, Container, Form, FormControl, Nav, Navbar, Row } from 'react-bootstrap';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import About from "./About";
 import Restaurant from "./Restaurant";
 import Restaurants from "./Restaurants";
 import NotFound from "./NotFound";
+
 
 function App() {
   const [searchString, setSearchString] = useState("");
@@ -50,10 +52,10 @@ function App() {
               <Route exact path='/' render={() => <Redirect to="/Restaurants" />}/>
               <Route exact path="/about" render={() => <About />} />
               <Route exact path="/Restaurants" render={(props) => {
-                <Restaurants query={props.location.search} />
+                return <Restaurants query={props.location.search} />
               }} />
               <Route exact path="/Restaurant/:id" render={(props) => {
-                <Restaurant id={props.match.params.id} />
+                return <Restaurant id={props.match.params.id} />
               }} />
               <Route render={() => <NotFound />} />
             </Switch>   
@@ -61,7 +63,7 @@ function App() {
         </Row>
       </Container>
     </>
-  )
+  );
 }
 
 export default App;
